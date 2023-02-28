@@ -1,1 +1,2 @@
 C:\Users\sammc\OneDrive\Documents\Computer science book\SDE\SDE\x64\Debug\SDE.exe
+C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\x64\Debug\SDE.exe

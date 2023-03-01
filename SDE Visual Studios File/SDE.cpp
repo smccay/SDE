@@ -19,19 +19,16 @@ std::vector<std::string> encrypt(std::vector<std::string> password)
     int length = str.length();
     for (int i = 0; i < length; i++)
     {
-        for (int c{ 0 }; char letter : lowercase)
+        std::cout << password[0][i] << ": outer loop \n";
+        for (int i1 = 0; i1 < 26; i1++)
         {
-            if (letter == password[0][i] && letter != lowercase[25] && letter != lowercase[24] && letter != lowercase[23])
+            if (lowercase[i1] == password[0][i] && lowercase[i1] != lowercase[25] && lowercase[i1] != lowercase[24] && lowercase[i1] != lowercase[23])
             {
-              std::cout << letter << "\n";
-              password[0][i] = lowercase[c + 3];
-              std::cout << password[0][i] << " Success \n";
+                std::cout << "\n" <<lowercase[i1] << ": inside if statement \n";
+                password[0][i] = lowercase[i1 + 3];
+                std::cout << password[0][i] << " Success \n";
+                break;
             }
-            ++c;
-        }
-        for (auto number : password)
-        {
-            std::cout << number << ' ';
         }
     }
     return password;

@@ -1,4 +1,5 @@
 ﻿  SDE.cpp
-C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(24,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(50,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(19,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(48,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(75,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   SDE.vcxproj -> C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\x64\Debug\SDE.exe

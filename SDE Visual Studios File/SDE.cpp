@@ -4,7 +4,6 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-
 std::vector<std::string> input(std::string_view x, bool y)
 {
     std::cout << "Please enter a password to be "<< x <<"\n";
@@ -23,6 +22,8 @@ std::vector<std::string> input(std::string_view x, bool y)
 std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool z)
 {
     int shift{ 0 };
+    int x{ 0 };
+    int y{ 0 };
     if (z == false)
     {
         srand(time(NULL));
@@ -30,26 +31,27 @@ std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool
         {
             shift = rand() % 11 - 5;
         }
+        if (shift > 0)
+        {
+            x = shift;
+        }
+        else
+        {
+            y = shift * -1;
+        }
     }
     else
     {
         shift = std::stoi(password[0]);
         password.erase(password.begin());
-        std::cout << shift;
-    }
-    
-    //Debug: std::cout << shift <<"\n";
-    int x{ 0 };
-    int y{ 0 };
-    if (shift > 0)
-    {
-        x = shift;
-        //password.insert(password.begin(), std::to_string(x));
-    }
-    else
-    {
-        y = shift*-1;
-        //password.insert(password.begin(), std::to_string(shift));
+        if (shift < 0)
+        {
+            x = shift * -1;
+        }
+        else
+        {
+            y = shift;
+        }
     }
     //Debug: std::cout << x << "\n";
     //Debug: std::cout << y << "\n";
@@ -79,50 +81,40 @@ std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool
     if (z == false)
     {
         password.insert(password.begin(), std::to_string(shift));
+        password.pop_back();
     }
     return password;
 }
-std::vector<std::string> decrypt(std::vector<std::string> userEncrypted)
+void initializeUI()
 {
-    
-    std::array<char, 95>  characters{ ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',
-                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?',
-                    '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
-                    'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_',
-                    '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
-                    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~' };
-    std::string str = userEncrypted[0];
-    int length = str.length();
-    for (int i = 0; i < length; i++)
+    std::cout << "Welcome to Simple Decrypter / Encrypter \n";
+    tryAgain:
+    std::cout << "Do you wish to decrypt or encrypt? (1 for encrypt/2 for decrypt) \n";
+    int userInput{};
+    std::cin >> userInput;
+    std::vector<std::string> password{};
+    std::vector<std::string> encrypted{};
+    std::vector<std::string> enPassword{};
+    std::vector<std::string> decrypted{};
+    switch (userInput)
     {
-        //Debug: std::cout <<"\n" << password[0][i] << ": outer loop \n";
-        for (int i1 = 2; i1 < 91; i1++)
-        {
-            if (characters[i1] == userEncrypted[0][i])
-            {
-                //Debug:std::cout<< characters[i1] << ": inside if statement \n";
-                userEncrypted[0][i] = characters[i1 - 3];
-                //Debug:std::cout << userEncrypted[0][i] << ": Success - \n";
-                break;
-            }
-        }
+    case (1):
+        password = { input("encrypted", false) };
+        encrypted = { encrypt_decrypt(password, false) };
+        std::cout << encrypted[0] << " is your encryption key \n" << encrypted[1] << " is your password encrypted \n";
+        break;
+    case (2):
+        enPassword = { input("decrypted", true) };
+        decrypted = {encrypt_decrypt(enPassword, true) };
+        std::cout << decrypted[0] << " is your password decrypted \n";
+        break;
+    default:
+        std::cout << "Please enter a VALID option. \n";
+        goto tryAgain;
     }
-    return userEncrypted;
 }
-
-
 int main()
 {
-    std::vector<std::string> password{ input("encrypted", false)};
-    std::vector<std::string> encrypted{ encrypt_decrypt(password, false) };
-    for (const auto& str : encrypted) {
-        std::cout << str << " ";
-    }
-    //std::vector<std::string> enPassword{ input("decrypted", true) };
-    //std::vector<std::string> decrypted{ decrypt(enPassword) };
-    //for (auto number : decrypted)
-    //{
-        //std::cout << "Your password decrypted is " << number << ' ' << "\n";
-    //}
+    initializeUI();
     return 0;
 }

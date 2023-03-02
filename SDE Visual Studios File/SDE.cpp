@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 std::vector<std::string> input(std::string_view x, bool y)
 {
     std::cout << "Please enter a password to be "<< x <<"\n";
@@ -89,7 +90,7 @@ void initializeUI()
 {
     std::cout << "Welcome to Simple Decrypter / Encrypter \n";
     tryAgain:
-    std::cout << "Do you wish to decrypt or encrypt? (1 for encrypt/2 for decrypt) \n";
+    std::cout << "Do you wish to encrypt or decrypt? (1 for encrypt/2 for decrypt) \n";
     int userInput{};
     std::cin >> userInput;
     std::vector<std::string> password{};
@@ -116,5 +117,13 @@ void initializeUI()
 int main()
 {
     initializeUI();
+    std::cout << "Press end to exit!" << '\n';
+    while (true)
+    {
+        if (GetAsyncKeyState(VK_END) & 1)
+        {
+            break;
+        }
+    }
     return 0;
 }

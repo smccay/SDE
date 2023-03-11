@@ -17,7 +17,7 @@ Once selected enter the password and if necessary the encryption key.
 All usage must fall under what's acceptable in the license agreement.
 
 ### Disclaimer
-Does not work on MacOS have not checked linux
+Does not work on MacOS have not checked linux. 
 I cannot guarantee the security of the encrypted password. Please do not use this for anything that matters. User discretion advised.
 
 *The encryption is not random but is a random + or - 5 shift encryption.

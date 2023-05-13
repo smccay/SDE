@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <Windows.h>
+//User input for encrption/decryption 
 std::vector<std::string> input(std::string_view x, bool y)
 {
     std::cout << "Please enter a password to be "<< x <<"\n";
@@ -20,6 +21,8 @@ std::vector<std::string> input(std::string_view x, bool y)
     password.insert(password.begin(), temp);
     return password;
 }
+
+// Encrypt/decrypt function
 std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool z)
 {
     int shift{ 0 };
@@ -86,11 +89,43 @@ std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool
     }
     return password;
 }
+
+std::string passwordGen()
+{
+    srand(time(NULL));
+    std::array <char, 94> passwordChars = {
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+    'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+    'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D',
+    'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+    'Y', 'Z', '!', '@', '#', '$', '%', '^', '&', '*',
+    '(', ')', '-', '_', '+', '=', '`', '~', '[', ']',
+    '{', '}', '|', ';', ':', ',', '.', '/', '<', '>',
+    '?' };
+    std::vector<std::string> password;
+    for (int i = 0; i < 16; i++)
+    {
+        int num{ rand() % 94 };
+        password.push_back(std::string(1,passwordChars[num]));
+    }
+    std::string generatedPassword;
+    for (const std::string& character : password)
+    {
+        generatedPassword += character;
+    }
+
+    return generatedPassword;
+}
+
+
+// UI initialization
 void initializeUI()
 {
     std::cout << "Welcome to Simple Decrypter / Encrypter \n";
     tryAgain:
-    std::cout << "Do you wish to encrypt or decrypt? (1 for encrypt/2 for decrypt) \n";
+    std::cout << "Do you wish to encrypt, decrypt or generate new password? (1 for encrypt/2 for decrypt/3 for password) \n";
     int userInput{};
     std::cin >> userInput;
     std::vector<std::string> password{};
@@ -108,6 +143,9 @@ void initializeUI()
         enPassword = { input("decrypted", true) };
         decrypted = {encrypt_decrypt(enPassword, true) };
         std::cout << decrypted[0] << " is your password decrypted \n";
+        break;
+    case(3):
+        std::cout << passwordGen() << "\n";
         break;
     default:
         std::cout << "Please enter a VALID option. \n";

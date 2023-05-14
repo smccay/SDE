@@ -1,10 +1,10 @@
 ﻿  SDE.cpp
-C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(33,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(70,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(95,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\sammc\OneDrive\Documents\Computer science book\SDE\SDE Visual Studios File\SDE.cpp(33,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\sammc\OneDrive\Documents\Computer science book\SDE\SDE Visual Studios File\SDE.cpp(70,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\sammc\OneDrive\Documents\Computer science book\SDE\SDE Visual Studios File\SDE.cpp(95,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating code
-  2 of 268 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+  2 of 270 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    9 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  SDE.vcxproj -> C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\x64\Release\SDE.exe
+  SDE.vcxproj -> C:\Users\sammc\OneDrive\Documents\Computer science book\SDE\SDE Visual Studios File\x64\Release\SDE.exe

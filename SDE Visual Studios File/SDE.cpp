@@ -90,7 +90,7 @@ std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool
     return password;
 }
 
-std::string passwordGen()
+std::string passwordGen(int pLen)
 {
     srand(time(NULL));
     std::array <char, 94> passwordChars = {
@@ -105,9 +105,15 @@ std::string passwordGen()
     '{', '}', '|', ';', ':', ',', '.', '/', '<', '>',
     '?' };
     std::vector<std::string> password;
-    for (int i = 0; i < 16; i++)
+    for (int i = 0; i < pLen; i++)
     {
-        int num{ rand() % 94 };
+        // Ensures that there are at least 1 of each type of characters in password
+        int num{};
+        if (i == 0) { num = (rand() % 10 - 0);}
+        else if (i == 1) { num = (rand() % 36 - 10); }
+        else if (i == 2) { num = (rand() % 62 - 36); }
+        else if (i > 2) { num = (rand() % 94); }
+        //DEBUG//std::cout <<"Iteration; "<< i <<"| Random NUM; " << num << "\n";
         password.push_back(std::string(1,passwordChars[num]));
     }
     std::string generatedPassword;
@@ -145,7 +151,7 @@ void initializeUI()
         std::cout << decrypted[0] << " is your password decrypted \n";
         break;
     case(3):
-        std::cout << passwordGen() << "\n";
+        std::cout << passwordGen(16) << "\n";
         break;
     default:
         std::cout << "Please enter a VALID option. \n";

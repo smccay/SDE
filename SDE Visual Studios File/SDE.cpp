@@ -2,9 +2,10 @@
 #include <vector>
 #include <array>
 #include <string>
-#include <cstdlib>
-#include <ctime>
+#include <fstream>
 #include <Windows.h>
+#include <random>
+
 //User input for encrption/decryption 
 std::vector<std::string> input(std::string_view x, bool y)
 {
@@ -21,6 +22,22 @@ std::vector<std::string> input(std::string_view x, bool y)
     password.insert(password.begin(), temp);
     return password;
 }
+//Write to file
+void writeToFile(std::vector<std::string> pass)
+{
+    std::ofstream outputFile("hash.txt", std::ios::app);  // Create file if none already existing.
+
+    if (outputFile.is_open())
+    {
+        outputFile << pass[0] <<" " <<pass[1] << "\n";
+        outputFile.close();
+        std::cout << "Data has been written to the file. \n";
+    }
+    else
+    {
+        std::cout << "Unable to open the file. \n";
+    }
+}
 
 // Encrypt/decrypt function
 std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool z)
@@ -30,10 +47,13 @@ std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool
     int y{ 0 };
     if (z == false)
     {
-        srand(time(NULL));
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        //Generator Params
+        std::uniform_int_distribution<> numGen(5, 11);
         while (shift == 0)
         {
-            shift = rand() % 11 - 5;
+            shift = numGen(gen);
         }
         if (shift > 0)
         {
@@ -92,7 +112,6 @@ std::vector<std::string> encrypt_decrypt(std::vector<std::string> password, bool
 
 std::string passwordGen(int pLen)
 {
-    srand(time(NULL));
     std::array <char, 94> passwordChars = {
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
@@ -105,14 +124,21 @@ std::string passwordGen(int pLen)
     '{', '}', '|', ';', ':', ',', '.', '/', '<', '>',
     '?' };
     std::vector<std::string> password;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    //Generator Params
+    std::uniform_int_distribution<> numGen(0, 9);
+    std::uniform_int_distribution<> lcGen(9, 35);
+    std::uniform_int_distribution<> ucGen(35, 61);
+    std::uniform_int_distribution<> charGen(0, 94);
     for (int i = 0; i < pLen; i++)
     {
         // Ensures that there are at least 1 of each type of characters in password
         int num{};
-        if (i == 0) { num = (rand() % 10 - 0);}
-        else if (i == 1) { num = (rand() % 36 - 10); }
-        else if (i == 2) { num = (rand() % 62 - 36); }
-        else if (i > 2) { num = (rand() % 94); }
+        if (i == 0) { num = numGen(gen);}
+        else if (i == 1) { num = lcGen(gen); }
+        else if (i == 2) { num = ucGen(gen); }
+        else if (i > 2) { num = charGen(gen); }
         //DEBUG//std::cout <<"Iteration; "<< i <<"| Random NUM; " << num << "\n";
         password.push_back(std::string(1,passwordChars[num]));
     }
@@ -138,6 +164,7 @@ void initializeUI()
     std::vector<std::string> encrypted{};
     std::vector<std::string> enPassword{};
     std::vector<std::string> decrypted{};
+    std::vector<std::string> genPassword{};
     switch (userInput)
     {
     case (1):
@@ -151,7 +178,9 @@ void initializeUI()
         std::cout << decrypted[0] << " is your password decrypted \n";
         break;
     case(3):
-        std::cout << passwordGen(16) << "\n";
+        genPassword = { passwordGen(16) };
+        std::cout <<"Here is your new 16 character password; " << genPassword[0] << "\n";
+        writeToFile(encrypt_decrypt(genPassword, false)); //not working trying to decrypt -> issue lies with the fact that passwordGen returns string. Probobly not worth debugging as ecryption needs overhaul
         break;
     default:
         std::cout << "Please enter a VALID option. \n";

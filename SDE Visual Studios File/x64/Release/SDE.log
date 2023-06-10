@@ -1,8 +1,0 @@
-﻿  SDE.cpp
-C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(90,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating code
-  15 of 330 functions ( 4.5%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    78 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  SDE.vcxproj -> C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\x64\Release\SDE.exe

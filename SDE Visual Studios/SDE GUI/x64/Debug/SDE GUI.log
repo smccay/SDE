@@ -1,0 +1,2 @@
+﻿C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\SDE GUI.vcxproj(73,5): warning MSB4011: "C:\Users\sammc\Documents\Coding\libraries\wxWidgets\wxwidgets.props" cannot be imported again. It was already imported at "C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\SDE GUI.vcxproj (72,5)". This is most likely a build authoring error. This subsequent import will be ignored. 
+  SDE GUI.vcxproj -> C:\Users\sammc\Documents\Coding\SDE\SDE GUI\x64\Debug\SDE GUI.exe

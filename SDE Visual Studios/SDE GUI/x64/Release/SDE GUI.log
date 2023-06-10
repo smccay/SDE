@@ -1,0 +1,16 @@
+﻿C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\SDE GUI.vcxproj(78,5): warning MSB4011: "C:\Users\sammc\Documents\Coding\libraries\wxWidgets\wxwidgets.props" cannot be imported again. It was already imported at "C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\SDE GUI.vcxproj (77,5)". This is most likely a build authoring error. This subsequent import will be ignored. 
+  App.cpp
+  MainFrame.cpp
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(150,57): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(152,61): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(214,57): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(216,71): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(218,57): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(220,63): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(289,57): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammc\Documents\Coding\SDE\SDE GUI\SDE GUI\MainFrame.cpp(291,61): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 867 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SDE GUI.vcxproj -> C:\Users\sammc\Documents\Coding\SDE\SDE GUI\x64\Release\SDE GUI.exe

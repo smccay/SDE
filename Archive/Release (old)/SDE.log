@@ -1,0 +1,8 @@
+﻿  SDE.cpp
+C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(30,19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\SDE.cpp(67,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 255 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SDE.vcxproj -> C:\Users\sammc\Documents\Coding\SDE\SDE Visual Studios File\x64\Release\SDE.exe

@@ -1,0 +1,40 @@
+            }
+            if (uppercase[i1] == password[0][i] && uppercase[i1] != uppercase[25] && uppercase[i1] != uppercase[24] && uppercase[i1] != uppercase[23])
+            {
+                std::cout<<uppercase[i1] << ": inside lower if statement \n";
+                password[0][i] = uppercase[i1 + 3];
+                std::cout << password[0][i] << ": Success - lower\n";
+                break;
+            }
+            switch (password[0][i])
+            {
+            case 'x':
+                password[0][i] = 'a';
+                password[i].insert(i+1, 1, '.');
+                break;
+            case 'y':
+                password[0][i] = 'b';
+                password[i].insert(i + 1, 1, '.');
+                break;
+            case 'z':
+                password[0][i] = 'c';
+                password[i].insert(i + 1, 1, '.');
+                break;
+            case 'X':
+                password[0][i] = 'A';
+                password[i].insert(i + 1, 1, '.');
+                break;
+            case 'Y':
+                password[0][i] = 'B';
+                password[i].insert(i + 1, 1, '.');
+                break;
+            case 'Z':
+                password[0][i] = 'C';
+                password[i].insert(i + 1, 1, '.');
+                break;
+            default:
+                break;
+            }
+            if (password[0][i] == 'a' || password[0][i] == 'b' || password[0][i] == 'c' || password[0][i] == 'A' || password[0][i] == 'B' || password[0][i] == 'C' ) {
+                break;
+            }
